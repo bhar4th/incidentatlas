@@ -1,0 +1,1 @@
+{"name":"incidentatlas-web","version":"0.1.0","private":true,"type":"module","scripts":{"build:web":"node scripts/build-web.mjs","test:browser":"node browser/test-parity.mjs"},"devDependencies":{"esbuild":"0.25.12"}}

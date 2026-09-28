@@ -1,0 +1,135 @@
+{
+  "resourceSpans": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "inventory"
+            }
+          },
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "demo"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "incidentatlas.demo"
+          },
+          "spans": [
+            {
+              "traceId": "17aa00382b648b0ace0d13a103c717ef",
+              "spanId": "28d7c8554ad0babc",
+              "name": "GET /inventory",
+              "kind": 2,
+              "startTimeUnixNano": "1790431410000000000",
+              "endTimeUnixNano": "1790431412000000000",
+              "status": {
+                "code": 2,
+                "message": "Connection acquisition timed out"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "resourceLogs": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "inventory"
+            }
+          },
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "demo"
+            }
+          }
+        ]
+      },
+      "scopeLogs": [
+        {
+          "scope": {
+            "name": "incidentatlas.demo"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "1790431411000000000",
+              "severityNumber": 17,
+              "severityText": "ERROR",
+              "body": {
+                "stringValue": "Connection pool exhausted: acquire connection timeout."
+              },
+              "traceId": "17aa00382b648b0ace0d13a103c717ef",
+              "spanId": "28d7c8554ad0babc"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "resourceMetrics": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "inventory"
+            }
+          },
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "demo"
+            }
+          }
+        ]
+      },
+      "scopeMetrics": [
+        {
+          "scope": {
+            "name": "incidentatlas.demo"
+          },
+          "metrics": [
+            {
+              "name": "db.pool.utilization",
+              "unit": "1",
+              "gauge": {
+                "dataPoints": [
+                  {
+                    "timeUnixNano": "1790431411000000000",
+                    "asDouble": 1.0
+                  }
+                ]
+              }
+            },
+            {
+              "name": "db.pool.pending",
+              "unit": "connections",
+              "gauge": {
+                "dataPoints": [
+                  {
+                    "timeUnixNano": "1790431411000000000",
+                    "asInt": "18"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

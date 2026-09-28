@@ -1,0 +1,2562 @@
+{
+  "synthetic": true,
+  "schema_version": "1.0",
+  "scenarios": [
+    {
+      "id": "pool-pressure",
+      "title": "Checkout stalls after inventory release",
+      "description": "Checkout errors rise after an inventory deployment. Compare database evidence with upstream symptoms.",
+      "started_at": "2026-09-26T14:00:00.000Z",
+      "ended_at": "2026-09-26T14:08:00.000Z",
+      "events": [
+        {
+          "id": "pool-pressure-001",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "gateway",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "pool-pressure-002",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "gateway",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "pool-pressure-003",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "pool-pressure-004",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "pool-pressure-005",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "pool-pressure-006",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "pool-pressure-007",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "pool-pressure-008",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "pool-pressure-009",
+          "timestamp": "2026-09-26T14:00:10.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout",
+            "retry.attempt": 0
+          },
+          "trace_id": "pool-pressure-trace-008",
+          "span_id": "pool-pressure-trace-008-c",
+          "duration_ms": 65
+        },
+        {
+          "id": "pool-pressure-010",
+          "timestamp": "2026-09-26T14:00:10.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "pool-pressure-trace-008",
+          "span_id": "pool-pressure-trace-008-s",
+          "parent_span_id": "pool-pressure-trace-008-c",
+          "duration_ms": 61
+        },
+        {
+          "id": "pool-pressure-011",
+          "timestamp": "2026-09-26T14:00:11.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "inventory",
+            "retry.attempt": 0
+          },
+          "trace_id": "pool-pressure-trace-010",
+          "span_id": "pool-pressure-trace-010-c",
+          "duration_ms": 25
+        },
+        {
+          "id": "pool-pressure-012",
+          "timestamp": "2026-09-26T14:00:11.003Z",
+          "service": "inventory",
+          "kind": "span",
+          "severity": "info",
+          "name": "/inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "pool-pressure-trace-010",
+          "span_id": "pool-pressure-trace-010-s",
+          "parent_span_id": "pool-pressure-trace-010-c",
+          "duration_ms": 21
+        },
+        {
+          "id": "pool-pressure-013",
+          "timestamp": "2026-09-26T14:00:12.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments",
+            "retry.attempt": 0
+          },
+          "trace_id": "pool-pressure-trace-012",
+          "span_id": "pool-pressure-trace-012-c",
+          "duration_ms": 35
+        },
+        {
+          "id": "pool-pressure-014",
+          "timestamp": "2026-09-26T14:00:12.003Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "info",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "pool-pressure-trace-012",
+          "span_id": "pool-pressure-trace-012-s",
+          "parent_span_id": "pool-pressure-trace-012-c",
+          "duration_ms": 31
+        },
+        {
+          "id": "pool-pressure-015",
+          "timestamp": "2026-09-26T14:00:15.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "db.pool.utilization",
+          "message": "",
+          "attributes": {},
+          "value": 0.28,
+          "unit": "1"
+        },
+        {
+          "id": "pool-pressure-016",
+          "timestamp": "2026-09-26T14:03:00.000Z",
+          "service": "inventory",
+          "kind": "deployment",
+          "severity": "info",
+          "name": "deployment.completed",
+          "message": "Deployed 2.8.1",
+          "attributes": {
+            "version": "2.8.1",
+            "change": "Pool maximum changed from 20 to 4."
+          }
+        },
+        {
+          "id": "pool-pressure-017",
+          "timestamp": "2026-09-26T14:02:50.000Z",
+          "service": "payments",
+          "kind": "deployment",
+          "severity": "info",
+          "name": "deployment.completed",
+          "message": "Deployed 4.2.3",
+          "attributes": {
+            "version": "4.2.3",
+            "change": "Updated request logging format."
+          }
+        },
+        {
+          "id": "pool-pressure-018",
+          "timestamp": "2026-09-26T14:03:25.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "db.pool.utilization",
+          "message": "",
+          "attributes": {},
+          "value": 1,
+          "unit": "1"
+        },
+        {
+          "id": "pool-pressure-019",
+          "timestamp": "2026-09-26T14:03:26.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "db.pool.pending",
+          "message": "",
+          "attributes": {},
+          "value": 42,
+          "unit": "connections"
+        },
+        {
+          "id": "pool-pressure-020",
+          "timestamp": "2026-09-26T14:03:27.000Z",
+          "service": "inventory",
+          "kind": "log",
+          "severity": "error",
+          "name": "application.event",
+          "message": "Acquire connection timeout: connection pool exhausted after 2000 ms.",
+          "attributes": {}
+        },
+        {
+          "id": "pool-pressure-021",
+          "timestamp": "2026-09-26T14:03:30.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout"
+          },
+          "trace_id": "pool-pressure-trace-020",
+          "span_id": "pool-pressure-trace-020-c0",
+          "duration_ms": 2090
+        },
+        {
+          "id": "pool-pressure-022",
+          "timestamp": "2026-09-26T14:03:30.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "pool-pressure-trace-020",
+          "span_id": "pool-pressure-trace-020-s0",
+          "parent_span_id": "pool-pressure-trace-020-c0",
+          "duration_ms": 2082
+        },
+        {
+          "id": "pool-pressure-023",
+          "timestamp": "2026-09-26T14:03:30.025Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "inventory"
+          },
+          "trace_id": "pool-pressure-trace-020",
+          "span_id": "pool-pressure-trace-020-c1",
+          "duration_ms": 2035,
+          "parent_span_id": "pool-pressure-trace-020-s0"
+        },
+        {
+          "id": "pool-pressure-024",
+          "timestamp": "2026-09-26T14:03:30.028Z",
+          "service": "inventory",
+          "kind": "span",
+          "severity": "error",
+          "name": "/inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "pool-pressure-trace-020",
+          "span_id": "pool-pressure-trace-020-s1",
+          "parent_span_id": "pool-pressure-trace-020-c1",
+          "duration_ms": 2027
+        },
+        {
+          "id": "pool-pressure-025",
+          "timestamp": "2026-09-26T14:04:00.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout"
+          },
+          "trace_id": "pool-pressure-trace-024",
+          "span_id": "pool-pressure-trace-024-c0",
+          "duration_ms": 2090
+        },
+        {
+          "id": "pool-pressure-026",
+          "timestamp": "2026-09-26T14:04:00.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "pool-pressure-trace-024",
+          "span_id": "pool-pressure-trace-024-s0",
+          "parent_span_id": "pool-pressure-trace-024-c0",
+          "duration_ms": 2082
+        },
+        {
+          "id": "pool-pressure-027",
+          "timestamp": "2026-09-26T14:04:00.025Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "inventory"
+          },
+          "trace_id": "pool-pressure-trace-024",
+          "span_id": "pool-pressure-trace-024-c1",
+          "duration_ms": 2035,
+          "parent_span_id": "pool-pressure-trace-024-s0"
+        },
+        {
+          "id": "pool-pressure-028",
+          "timestamp": "2026-09-26T14:04:00.028Z",
+          "service": "inventory",
+          "kind": "span",
+          "severity": "error",
+          "name": "/inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "pool-pressure-trace-024",
+          "span_id": "pool-pressure-trace-024-s1",
+          "parent_span_id": "pool-pressure-trace-024-c1",
+          "duration_ms": 2027
+        },
+        {
+          "id": "pool-pressure-029",
+          "timestamp": "2026-09-26T14:04:30.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout"
+          },
+          "trace_id": "pool-pressure-trace-028",
+          "span_id": "pool-pressure-trace-028-c0",
+          "duration_ms": 2090
+        },
+        {
+          "id": "pool-pressure-030",
+          "timestamp": "2026-09-26T14:04:30.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "pool-pressure-trace-028",
+          "span_id": "pool-pressure-trace-028-s0",
+          "parent_span_id": "pool-pressure-trace-028-c0",
+          "duration_ms": 2082
+        },
+        {
+          "id": "pool-pressure-031",
+          "timestamp": "2026-09-26T14:04:30.025Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "inventory"
+          },
+          "trace_id": "pool-pressure-trace-028",
+          "span_id": "pool-pressure-trace-028-c1",
+          "duration_ms": 2035,
+          "parent_span_id": "pool-pressure-trace-028-s0"
+        },
+        {
+          "id": "pool-pressure-032",
+          "timestamp": "2026-09-26T14:04:30.028Z",
+          "service": "inventory",
+          "kind": "span",
+          "severity": "error",
+          "name": "/inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "pool-pressure-trace-028",
+          "span_id": "pool-pressure-trace-028-s1",
+          "parent_span_id": "pool-pressure-trace-028-c1",
+          "duration_ms": 2027
+        },
+        {
+          "id": "pool-pressure-033",
+          "timestamp": "2026-09-26T14:03:45.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 2100,
+          "unit": "ms"
+        },
+        {
+          "id": "pool-pressure-034",
+          "timestamp": "2026-09-26T14:03:47.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 18,
+          "unit": "errors/s"
+        },
+        {
+          "id": "pool-pressure-035",
+          "timestamp": "2026-09-26T14:03:50.000Z",
+          "service": "checkout",
+          "kind": "log",
+          "severity": "error",
+          "name": "application.event",
+          "message": "Inventory request exceeded deadline.",
+          "attributes": {}
+        },
+        {
+          "id": "pool-pressure-036",
+          "timestamp": "2026-09-26T14:03:55.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 72,
+          "unit": "ms"
+        }
+      ]
+    },
+    {
+      "id": "downstream-latency",
+      "title": "Payment authorizations slow down",
+      "description": "Payment and checkout latency increase together. Identify the deepest observed slow service.",
+      "started_at": "2026-09-26T14:00:00.000Z",
+      "ended_at": "2026-09-26T14:08:00.000Z",
+      "events": [
+        {
+          "id": "downstream-latency-001",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "gateway",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "downstream-latency-002",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "gateway",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "downstream-latency-003",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "downstream-latency-004",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "downstream-latency-005",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "downstream-latency-006",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "downstream-latency-007",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "downstream-latency-008",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "downstream-latency-009",
+          "timestamp": "2026-09-26T14:00:10.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout",
+            "retry.attempt": 0
+          },
+          "trace_id": "downstream-latency-trace-008",
+          "span_id": "downstream-latency-trace-008-c",
+          "duration_ms": 65
+        },
+        {
+          "id": "downstream-latency-010",
+          "timestamp": "2026-09-26T14:00:10.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "downstream-latency-trace-008",
+          "span_id": "downstream-latency-trace-008-s",
+          "parent_span_id": "downstream-latency-trace-008-c",
+          "duration_ms": 61
+        },
+        {
+          "id": "downstream-latency-011",
+          "timestamp": "2026-09-26T14:00:11.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "inventory",
+            "retry.attempt": 0
+          },
+          "trace_id": "downstream-latency-trace-010",
+          "span_id": "downstream-latency-trace-010-c",
+          "duration_ms": 25
+        },
+        {
+          "id": "downstream-latency-012",
+          "timestamp": "2026-09-26T14:00:11.003Z",
+          "service": "inventory",
+          "kind": "span",
+          "severity": "info",
+          "name": "/inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "downstream-latency-trace-010",
+          "span_id": "downstream-latency-trace-010-s",
+          "parent_span_id": "downstream-latency-trace-010-c",
+          "duration_ms": 21
+        },
+        {
+          "id": "downstream-latency-013",
+          "timestamp": "2026-09-26T14:00:12.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments",
+            "retry.attempt": 0
+          },
+          "trace_id": "downstream-latency-trace-012",
+          "span_id": "downstream-latency-trace-012-c",
+          "duration_ms": 35
+        },
+        {
+          "id": "downstream-latency-014",
+          "timestamp": "2026-09-26T14:00:12.003Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "info",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "downstream-latency-trace-012",
+          "span_id": "downstream-latency-trace-012-s",
+          "parent_span_id": "downstream-latency-trace-012-c",
+          "duration_ms": 31
+        },
+        {
+          "id": "downstream-latency-015",
+          "timestamp": "2026-09-26T14:02:50.000Z",
+          "service": "fraud",
+          "kind": "deployment",
+          "severity": "info",
+          "name": "deployment.completed",
+          "message": "Deployed 1.9.0",
+          "attributes": {
+            "version": "1.9.0",
+            "change": "Switched rules lookup to remote feature store."
+          }
+        },
+        {
+          "id": "downstream-latency-016",
+          "timestamp": "2026-09-26T14:03:30.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout"
+          },
+          "trace_id": "downstream-latency-trace-015",
+          "span_id": "downstream-latency-trace-015-c0",
+          "duration_ms": 2010
+        },
+        {
+          "id": "downstream-latency-017",
+          "timestamp": "2026-09-26T14:03:30.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "downstream-latency-trace-015",
+          "span_id": "downstream-latency-trace-015-s0",
+          "parent_span_id": "downstream-latency-trace-015-c0",
+          "duration_ms": 2002
+        },
+        {
+          "id": "downstream-latency-018",
+          "timestamp": "2026-09-26T14:03:30.025Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments"
+          },
+          "trace_id": "downstream-latency-trace-015",
+          "span_id": "downstream-latency-trace-015-c1",
+          "duration_ms": 1955,
+          "parent_span_id": "downstream-latency-trace-015-s0"
+        },
+        {
+          "id": "downstream-latency-019",
+          "timestamp": "2026-09-26T14:03:30.028Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "error",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "downstream-latency-trace-015",
+          "span_id": "downstream-latency-trace-015-s1",
+          "parent_span_id": "downstream-latency-trace-015-c1",
+          "duration_ms": 1947
+        },
+        {
+          "id": "downstream-latency-020",
+          "timestamp": "2026-09-26T14:03:30.050Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /fraud",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "fraud"
+          },
+          "trace_id": "downstream-latency-trace-015",
+          "span_id": "downstream-latency-trace-015-c2",
+          "duration_ms": 1900,
+          "parent_span_id": "downstream-latency-trace-015-s1"
+        },
+        {
+          "id": "downstream-latency-021",
+          "timestamp": "2026-09-26T14:03:30.053Z",
+          "service": "fraud",
+          "kind": "span",
+          "severity": "error",
+          "name": "/fraud",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "downstream-latency-trace-015",
+          "span_id": "downstream-latency-trace-015-s2",
+          "parent_span_id": "downstream-latency-trace-015-c2",
+          "duration_ms": 1892
+        },
+        {
+          "id": "downstream-latency-022",
+          "timestamp": "2026-09-26T14:04:00.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout"
+          },
+          "trace_id": "downstream-latency-trace-021",
+          "span_id": "downstream-latency-trace-021-c0",
+          "duration_ms": 2010
+        },
+        {
+          "id": "downstream-latency-023",
+          "timestamp": "2026-09-26T14:04:00.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "downstream-latency-trace-021",
+          "span_id": "downstream-latency-trace-021-s0",
+          "parent_span_id": "downstream-latency-trace-021-c0",
+          "duration_ms": 2002
+        },
+        {
+          "id": "downstream-latency-024",
+          "timestamp": "2026-09-26T14:04:00.025Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments"
+          },
+          "trace_id": "downstream-latency-trace-021",
+          "span_id": "downstream-latency-trace-021-c1",
+          "duration_ms": 1955,
+          "parent_span_id": "downstream-latency-trace-021-s0"
+        },
+        {
+          "id": "downstream-latency-025",
+          "timestamp": "2026-09-26T14:04:00.028Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "error",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "downstream-latency-trace-021",
+          "span_id": "downstream-latency-trace-021-s1",
+          "parent_span_id": "downstream-latency-trace-021-c1",
+          "duration_ms": 1947
+        },
+        {
+          "id": "downstream-latency-026",
+          "timestamp": "2026-09-26T14:04:00.050Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /fraud",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "fraud"
+          },
+          "trace_id": "downstream-latency-trace-021",
+          "span_id": "downstream-latency-trace-021-c2",
+          "duration_ms": 1900,
+          "parent_span_id": "downstream-latency-trace-021-s1"
+        },
+        {
+          "id": "downstream-latency-027",
+          "timestamp": "2026-09-26T14:04:00.053Z",
+          "service": "fraud",
+          "kind": "span",
+          "severity": "error",
+          "name": "/fraud",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "downstream-latency-trace-021",
+          "span_id": "downstream-latency-trace-021-s2",
+          "parent_span_id": "downstream-latency-trace-021-c2",
+          "duration_ms": 1892
+        },
+        {
+          "id": "downstream-latency-028",
+          "timestamp": "2026-09-26T14:04:30.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout"
+          },
+          "trace_id": "downstream-latency-trace-027",
+          "span_id": "downstream-latency-trace-027-c0",
+          "duration_ms": 2010
+        },
+        {
+          "id": "downstream-latency-029",
+          "timestamp": "2026-09-26T14:04:30.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "downstream-latency-trace-027",
+          "span_id": "downstream-latency-trace-027-s0",
+          "parent_span_id": "downstream-latency-trace-027-c0",
+          "duration_ms": 2002
+        },
+        {
+          "id": "downstream-latency-030",
+          "timestamp": "2026-09-26T14:04:30.025Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments"
+          },
+          "trace_id": "downstream-latency-trace-027",
+          "span_id": "downstream-latency-trace-027-c1",
+          "duration_ms": 1955,
+          "parent_span_id": "downstream-latency-trace-027-s0"
+        },
+        {
+          "id": "downstream-latency-031",
+          "timestamp": "2026-09-26T14:04:30.028Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "error",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "downstream-latency-trace-027",
+          "span_id": "downstream-latency-trace-027-s1",
+          "parent_span_id": "downstream-latency-trace-027-c1",
+          "duration_ms": 1947
+        },
+        {
+          "id": "downstream-latency-032",
+          "timestamp": "2026-09-26T14:04:30.050Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /fraud",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "fraud"
+          },
+          "trace_id": "downstream-latency-trace-027",
+          "span_id": "downstream-latency-trace-027-c2",
+          "duration_ms": 1900,
+          "parent_span_id": "downstream-latency-trace-027-s1"
+        },
+        {
+          "id": "downstream-latency-033",
+          "timestamp": "2026-09-26T14:04:30.053Z",
+          "service": "fraud",
+          "kind": "span",
+          "severity": "error",
+          "name": "/fraud",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "downstream-latency-trace-027",
+          "span_id": "downstream-latency-trace-027-s2",
+          "parent_span_id": "downstream-latency-trace-027-c2",
+          "duration_ms": 1892
+        },
+        {
+          "id": "downstream-latency-034",
+          "timestamp": "2026-09-26T14:03:40.000Z",
+          "service": "fraud",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 1900,
+          "unit": "ms"
+        },
+        {
+          "id": "downstream-latency-035",
+          "timestamp": "2026-09-26T14:03:41.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 1960,
+          "unit": "ms"
+        },
+        {
+          "id": "downstream-latency-036",
+          "timestamp": "2026-09-26T14:03:42.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 2050,
+          "unit": "ms"
+        },
+        {
+          "id": "downstream-latency-037",
+          "timestamp": "2026-09-26T14:03:45.000Z",
+          "service": "payments",
+          "kind": "log",
+          "severity": "error",
+          "name": "application.event",
+          "message": "Authorization deadline exceeded while waiting for fraud response.",
+          "attributes": {}
+        },
+        {
+          "id": "downstream-latency-038",
+          "timestamp": "2026-09-26T14:03:50.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "db.pool.utilization",
+          "message": "",
+          "attributes": {},
+          "value": 0.3,
+          "unit": "1"
+        }
+      ]
+    },
+    {
+      "id": "retry-amplification",
+      "title": "A burst becomes a sustained overload",
+      "description": "Request attempts continue growing after a short payment outage. Inspect retries and original traffic.",
+      "started_at": "2026-09-26T14:00:00.000Z",
+      "ended_at": "2026-09-26T14:08:00.000Z",
+      "events": [
+        {
+          "id": "retry-amplification-001",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "gateway",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "retry-amplification-002",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "gateway",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "retry-amplification-003",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "retry-amplification-004",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "retry-amplification-005",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "retry-amplification-006",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "retry-amplification-007",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "retry-amplification-008",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "retry-amplification-009",
+          "timestamp": "2026-09-26T14:00:10.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout",
+            "retry.attempt": 0
+          },
+          "trace_id": "retry-amplification-trace-008",
+          "span_id": "retry-amplification-trace-008-c",
+          "duration_ms": 65
+        },
+        {
+          "id": "retry-amplification-010",
+          "timestamp": "2026-09-26T14:00:10.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "retry-amplification-trace-008",
+          "span_id": "retry-amplification-trace-008-s",
+          "parent_span_id": "retry-amplification-trace-008-c",
+          "duration_ms": 61
+        },
+        {
+          "id": "retry-amplification-011",
+          "timestamp": "2026-09-26T14:00:11.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "inventory",
+            "retry.attempt": 0
+          },
+          "trace_id": "retry-amplification-trace-010",
+          "span_id": "retry-amplification-trace-010-c",
+          "duration_ms": 25
+        },
+        {
+          "id": "retry-amplification-012",
+          "timestamp": "2026-09-26T14:00:11.003Z",
+          "service": "inventory",
+          "kind": "span",
+          "severity": "info",
+          "name": "/inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "retry-amplification-trace-010",
+          "span_id": "retry-amplification-trace-010-s",
+          "parent_span_id": "retry-amplification-trace-010-c",
+          "duration_ms": 21
+        },
+        {
+          "id": "retry-amplification-013",
+          "timestamp": "2026-09-26T14:00:12.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments",
+            "retry.attempt": 0
+          },
+          "trace_id": "retry-amplification-trace-012",
+          "span_id": "retry-amplification-trace-012-c",
+          "duration_ms": 35
+        },
+        {
+          "id": "retry-amplification-014",
+          "timestamp": "2026-09-26T14:00:12.003Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "info",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "retry-amplification-trace-012",
+          "span_id": "retry-amplification-trace-012-s",
+          "parent_span_id": "retry-amplification-trace-012-c",
+          "duration_ms": 31
+        },
+        {
+          "id": "retry-amplification-015",
+          "timestamp": "2026-09-26T14:03:00.000Z",
+          "service": "checkout",
+          "kind": "deployment",
+          "severity": "info",
+          "name": "deployment.completed",
+          "message": "Deployed 3.5.0",
+          "attributes": {
+            "version": "3.5.0",
+            "change": "Retry max attempts increased to 6; backoff disabled."
+          }
+        },
+        {
+          "id": "retry-amplification-016",
+          "timestamp": "2026-09-26T14:03:25.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.client.retry.rate",
+          "message": "",
+          "attributes": {},
+          "value": 480,
+          "unit": "attempts/s"
+        },
+        {
+          "id": "retry-amplification-017",
+          "timestamp": "2026-09-26T14:03:25.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.request.rate",
+          "message": "",
+          "attributes": {},
+          "value": 80,
+          "unit": "requests/s"
+        },
+        {
+          "id": "retry-amplification-018",
+          "timestamp": "2026-09-26T14:03:27.000Z",
+          "service": "checkout",
+          "kind": "log",
+          "severity": "warning",
+          "name": "application.event",
+          "message": "Retry budget exceeded; retry attempt 6 after 503.",
+          "attributes": {}
+        },
+        {
+          "id": "retry-amplification-019",
+          "timestamp": "2026-09-26T14:03:30.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments",
+            "retry.attempt": 2
+          },
+          "trace_id": "retry-amplification-trace-018",
+          "span_id": "retry-amplification-trace-018-c",
+          "duration_ms": 450
+        },
+        {
+          "id": "retry-amplification-020",
+          "timestamp": "2026-09-26T14:03:30.003Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "error",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "retry-amplification-trace-018",
+          "span_id": "retry-amplification-trace-018-s",
+          "parent_span_id": "retry-amplification-trace-018-c",
+          "duration_ms": 446
+        },
+        {
+          "id": "retry-amplification-021",
+          "timestamp": "2026-09-26T14:03:35.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments",
+            "retry.attempt": 3
+          },
+          "trace_id": "retry-amplification-trace-020",
+          "span_id": "retry-amplification-trace-020-c",
+          "duration_ms": 450
+        },
+        {
+          "id": "retry-amplification-022",
+          "timestamp": "2026-09-26T14:03:35.003Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "error",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "retry-amplification-trace-020",
+          "span_id": "retry-amplification-trace-020-s",
+          "parent_span_id": "retry-amplification-trace-020-c",
+          "duration_ms": 446
+        },
+        {
+          "id": "retry-amplification-023",
+          "timestamp": "2026-09-26T14:03:40.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments",
+            "retry.attempt": 4
+          },
+          "trace_id": "retry-amplification-trace-022",
+          "span_id": "retry-amplification-trace-022-c",
+          "duration_ms": 450
+        },
+        {
+          "id": "retry-amplification-024",
+          "timestamp": "2026-09-26T14:03:40.003Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "error",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "retry-amplification-trace-022",
+          "span_id": "retry-amplification-trace-022-s",
+          "parent_span_id": "retry-amplification-trace-022-c",
+          "duration_ms": 446
+        },
+        {
+          "id": "retry-amplification-025",
+          "timestamp": "2026-09-26T14:03:45.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments",
+            "retry.attempt": 5
+          },
+          "trace_id": "retry-amplification-trace-024",
+          "span_id": "retry-amplification-trace-024-c",
+          "duration_ms": 450
+        },
+        {
+          "id": "retry-amplification-026",
+          "timestamp": "2026-09-26T14:03:45.003Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "error",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "retry-amplification-trace-024",
+          "span_id": "retry-amplification-trace-024-s",
+          "parent_span_id": "retry-amplification-trace-024-c",
+          "duration_ms": 446
+        },
+        {
+          "id": "retry-amplification-027",
+          "timestamp": "2026-09-26T14:03:50.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout",
+            "retry.attempt": 0
+          },
+          "trace_id": "retry-amplification-trace-026",
+          "span_id": "retry-amplification-trace-026-c",
+          "duration_ms": 2800
+        },
+        {
+          "id": "retry-amplification-028",
+          "timestamp": "2026-09-26T14:03:50.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "retry-amplification-trace-026",
+          "span_id": "retry-amplification-trace-026-s",
+          "parent_span_id": "retry-amplification-trace-026-c",
+          "duration_ms": 2796
+        },
+        {
+          "id": "retry-amplification-029",
+          "timestamp": "2026-09-26T14:03:52.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 120,
+          "unit": "errors/s"
+        },
+        {
+          "id": "retry-amplification-030",
+          "timestamp": "2026-09-26T14:03:54.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "db.pool.utilization",
+          "message": "",
+          "attributes": {},
+          "value": 0.32,
+          "unit": "1"
+        },
+        {
+          "id": "retry-amplification-031",
+          "timestamp": "2026-09-26T14:04:00.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 2850,
+          "unit": "ms"
+        }
+      ]
+    },
+    {
+      "id": "config-regression",
+      "title": "Orders fail on the new release",
+      "description": "A new checkout version starts returning errors while other service checks remain normal.",
+      "started_at": "2026-09-26T14:00:00.000Z",
+      "ended_at": "2026-09-26T14:08:00.000Z",
+      "events": [
+        {
+          "id": "config-regression-001",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "gateway",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "config-regression-002",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "gateway",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "config-regression-003",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "config-regression-004",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "config-regression-005",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "config-regression-006",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "config-regression-007",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "config-regression-008",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "config-regression-009",
+          "timestamp": "2026-09-26T14:00:10.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout",
+            "retry.attempt": 0
+          },
+          "trace_id": "config-regression-trace-008",
+          "span_id": "config-regression-trace-008-c",
+          "duration_ms": 65
+        },
+        {
+          "id": "config-regression-010",
+          "timestamp": "2026-09-26T14:00:10.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "config-regression-trace-008",
+          "span_id": "config-regression-trace-008-s",
+          "parent_span_id": "config-regression-trace-008-c",
+          "duration_ms": 61
+        },
+        {
+          "id": "config-regression-011",
+          "timestamp": "2026-09-26T14:00:11.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "inventory",
+            "retry.attempt": 0
+          },
+          "trace_id": "config-regression-trace-010",
+          "span_id": "config-regression-trace-010-c",
+          "duration_ms": 25
+        },
+        {
+          "id": "config-regression-012",
+          "timestamp": "2026-09-26T14:00:11.003Z",
+          "service": "inventory",
+          "kind": "span",
+          "severity": "info",
+          "name": "/inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "config-regression-trace-010",
+          "span_id": "config-regression-trace-010-s",
+          "parent_span_id": "config-regression-trace-010-c",
+          "duration_ms": 21
+        },
+        {
+          "id": "config-regression-013",
+          "timestamp": "2026-09-26T14:00:12.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments",
+            "retry.attempt": 0
+          },
+          "trace_id": "config-regression-trace-012",
+          "span_id": "config-regression-trace-012-c",
+          "duration_ms": 35
+        },
+        {
+          "id": "config-regression-014",
+          "timestamp": "2026-09-26T14:00:12.003Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "info",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "config-regression-trace-012",
+          "span_id": "config-regression-trace-012-s",
+          "parent_span_id": "config-regression-trace-012-c",
+          "duration_ms": 31
+        },
+        {
+          "id": "config-regression-015",
+          "timestamp": "2026-09-26T14:03:00.000Z",
+          "service": "checkout",
+          "kind": "deployment",
+          "severity": "info",
+          "name": "deployment.completed",
+          "message": "Deployed 3.6.0",
+          "attributes": {
+            "version": "3.6.0",
+            "change": "PAYMENTS_ENDPOINT changed to unsupported scheme htttp://payments."
+          }
+        },
+        {
+          "id": "config-regression-016",
+          "timestamp": "2026-09-26T14:03:05.000Z",
+          "service": "checkout",
+          "kind": "log",
+          "severity": "error",
+          "name": "application.event",
+          "message": "Invalid configuration: PAYMENTS_ENDPOINT has invalid endpoint scheme htttp.",
+          "attributes": {}
+        },
+        {
+          "id": "config-regression-017",
+          "timestamp": "2026-09-26T14:03:06.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "config.validation.errors",
+          "message": "",
+          "attributes": {},
+          "value": 1,
+          "unit": "errors"
+        },
+        {
+          "id": "config-regression-018",
+          "timestamp": "2026-09-26T14:03:10.000Z",
+          "service": "checkout",
+          "kind": "log",
+          "severity": "error",
+          "name": "application.event",
+          "message": "Configuration validation failed before payment client initialization.",
+          "attributes": {}
+        },
+        {
+          "id": "config-regression-019",
+          "timestamp": "2026-09-26T14:03:30.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout",
+            "retry.attempt": 0
+          },
+          "trace_id": "config-regression-trace-018",
+          "span_id": "config-regression-trace-018-c",
+          "duration_ms": 35
+        },
+        {
+          "id": "config-regression-020",
+          "timestamp": "2026-09-26T14:03:30.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "config-regression-trace-018",
+          "span_id": "config-regression-trace-018-s",
+          "parent_span_id": "config-regression-trace-018-c",
+          "duration_ms": 31
+        },
+        {
+          "id": "config-regression-021",
+          "timestamp": "2026-09-26T14:04:00.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout",
+            "retry.attempt": 0
+          },
+          "trace_id": "config-regression-trace-020",
+          "span_id": "config-regression-trace-020-c",
+          "duration_ms": 35
+        },
+        {
+          "id": "config-regression-022",
+          "timestamp": "2026-09-26T14:04:00.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "config-regression-trace-020",
+          "span_id": "config-regression-trace-020-s",
+          "parent_span_id": "config-regression-trace-020-c",
+          "duration_ms": 31
+        },
+        {
+          "id": "config-regression-023",
+          "timestamp": "2026-09-26T14:04:30.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "error",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout",
+            "retry.attempt": 0
+          },
+          "trace_id": "config-regression-trace-022",
+          "span_id": "config-regression-trace-022-c",
+          "duration_ms": 35
+        },
+        {
+          "id": "config-regression-024",
+          "timestamp": "2026-09-26T14:04:30.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "error",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 503
+          },
+          "trace_id": "config-regression-trace-022",
+          "span_id": "config-regression-trace-022-s",
+          "parent_span_id": "config-regression-trace-022-c",
+          "duration_ms": 31
+        },
+        {
+          "id": "config-regression-025",
+          "timestamp": "2026-09-26T14:03:35.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 60,
+          "unit": "ms"
+        },
+        {
+          "id": "config-regression-026",
+          "timestamp": "2026-09-26T14:03:35.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "db.pool.utilization",
+          "message": "",
+          "attributes": {},
+          "value": 0.23,
+          "unit": "1"
+        },
+        {
+          "id": "config-regression-027",
+          "timestamp": "2026-09-26T14:03:38.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 34,
+          "unit": "errors/s"
+        }
+      ]
+    },
+    {
+      "id": "healthy-baseline",
+      "title": "Steady traffic, no known injected failure",
+      "description": "A control recording checks whether the engine invents a specific problem from ordinary activity.",
+      "started_at": "2026-09-26T14:00:00.000Z",
+      "ended_at": "2026-09-26T14:08:00.000Z",
+      "events": [
+        {
+          "id": "healthy-baseline-001",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "gateway",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "healthy-baseline-002",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "gateway",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "healthy-baseline-003",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "healthy-baseline-004",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "healthy-baseline-005",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "healthy-baseline-006",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "healthy-baseline-007",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.duration.p95",
+          "message": "",
+          "attributes": {},
+          "value": 75,
+          "unit": "ms"
+        },
+        {
+          "id": "healthy-baseline-008",
+          "timestamp": "2026-09-26T14:00:00.000Z",
+          "service": "payments",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.server.error.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0,
+          "unit": "errors/s"
+        },
+        {
+          "id": "healthy-baseline-009",
+          "timestamp": "2026-09-26T14:00:10.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout",
+            "retry.attempt": 0
+          },
+          "trace_id": "healthy-baseline-trace-008",
+          "span_id": "healthy-baseline-trace-008-c",
+          "duration_ms": 65
+        },
+        {
+          "id": "healthy-baseline-010",
+          "timestamp": "2026-09-26T14:00:10.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "healthy-baseline-trace-008",
+          "span_id": "healthy-baseline-trace-008-s",
+          "parent_span_id": "healthy-baseline-trace-008-c",
+          "duration_ms": 61
+        },
+        {
+          "id": "healthy-baseline-011",
+          "timestamp": "2026-09-26T14:00:11.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "inventory",
+            "retry.attempt": 0
+          },
+          "trace_id": "healthy-baseline-trace-010",
+          "span_id": "healthy-baseline-trace-010-c",
+          "duration_ms": 25
+        },
+        {
+          "id": "healthy-baseline-012",
+          "timestamp": "2026-09-26T14:00:11.003Z",
+          "service": "inventory",
+          "kind": "span",
+          "severity": "info",
+          "name": "/inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "healthy-baseline-trace-010",
+          "span_id": "healthy-baseline-trace-010-s",
+          "parent_span_id": "healthy-baseline-trace-010-c",
+          "duration_ms": 21
+        },
+        {
+          "id": "healthy-baseline-013",
+          "timestamp": "2026-09-26T14:00:12.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments",
+            "retry.attempt": 0
+          },
+          "trace_id": "healthy-baseline-trace-012",
+          "span_id": "healthy-baseline-trace-012-c",
+          "duration_ms": 35
+        },
+        {
+          "id": "healthy-baseline-014",
+          "timestamp": "2026-09-26T14:00:12.003Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "info",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "healthy-baseline-trace-012",
+          "span_id": "healthy-baseline-trace-012-s",
+          "parent_span_id": "healthy-baseline-trace-012-c",
+          "duration_ms": 31
+        },
+        {
+          "id": "healthy-baseline-015",
+          "timestamp": "2026-09-26T14:03:00.000Z",
+          "service": "inventory",
+          "kind": "deployment",
+          "severity": "info",
+          "name": "deployment.completed",
+          "message": "Deployed 2.8.0",
+          "attributes": {
+            "version": "2.8.0",
+            "change": "Updated documentation metadata."
+          }
+        },
+        {
+          "id": "healthy-baseline-016",
+          "timestamp": "2026-09-26T14:03:30.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "inventory",
+            "retry.attempt": 0
+          },
+          "trace_id": "healthy-baseline-trace-015",
+          "span_id": "healthy-baseline-trace-015-c",
+          "duration_ms": 32
+        },
+        {
+          "id": "healthy-baseline-017",
+          "timestamp": "2026-09-26T14:03:30.003Z",
+          "service": "inventory",
+          "kind": "span",
+          "severity": "info",
+          "name": "/inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "healthy-baseline-trace-015",
+          "span_id": "healthy-baseline-trace-015-s",
+          "parent_span_id": "healthy-baseline-trace-015-c",
+          "duration_ms": 28
+        },
+        {
+          "id": "healthy-baseline-018",
+          "timestamp": "2026-09-26T14:03:31.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments",
+            "retry.attempt": 0
+          },
+          "trace_id": "healthy-baseline-trace-017",
+          "span_id": "healthy-baseline-trace-017-c",
+          "duration_ms": 55
+        },
+        {
+          "id": "healthy-baseline-019",
+          "timestamp": "2026-09-26T14:03:31.003Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "info",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "healthy-baseline-trace-017",
+          "span_id": "healthy-baseline-trace-017-s",
+          "parent_span_id": "healthy-baseline-trace-017-c",
+          "duration_ms": 51
+        },
+        {
+          "id": "healthy-baseline-020",
+          "timestamp": "2026-09-26T14:03:32.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout",
+            "retry.attempt": 0
+          },
+          "trace_id": "healthy-baseline-trace-019",
+          "span_id": "healthy-baseline-trace-019-c",
+          "duration_ms": 85
+        },
+        {
+          "id": "healthy-baseline-021",
+          "timestamp": "2026-09-26T14:03:32.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "healthy-baseline-trace-019",
+          "span_id": "healthy-baseline-trace-019-s",
+          "parent_span_id": "healthy-baseline-trace-019-c",
+          "duration_ms": 81
+        },
+        {
+          "id": "healthy-baseline-022",
+          "timestamp": "2026-09-26T14:04:00.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "inventory",
+            "retry.attempt": 0
+          },
+          "trace_id": "healthy-baseline-trace-021",
+          "span_id": "healthy-baseline-trace-021-c",
+          "duration_ms": 32
+        },
+        {
+          "id": "healthy-baseline-023",
+          "timestamp": "2026-09-26T14:04:00.003Z",
+          "service": "inventory",
+          "kind": "span",
+          "severity": "info",
+          "name": "/inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "healthy-baseline-trace-021",
+          "span_id": "healthy-baseline-trace-021-s",
+          "parent_span_id": "healthy-baseline-trace-021-c",
+          "duration_ms": 28
+        },
+        {
+          "id": "healthy-baseline-024",
+          "timestamp": "2026-09-26T14:04:01.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments",
+            "retry.attempt": 0
+          },
+          "trace_id": "healthy-baseline-trace-023",
+          "span_id": "healthy-baseline-trace-023-c",
+          "duration_ms": 55
+        },
+        {
+          "id": "healthy-baseline-025",
+          "timestamp": "2026-09-26T14:04:01.003Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "info",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "healthy-baseline-trace-023",
+          "span_id": "healthy-baseline-trace-023-s",
+          "parent_span_id": "healthy-baseline-trace-023-c",
+          "duration_ms": 51
+        },
+        {
+          "id": "healthy-baseline-026",
+          "timestamp": "2026-09-26T14:04:02.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout",
+            "retry.attempt": 0
+          },
+          "trace_id": "healthy-baseline-trace-025",
+          "span_id": "healthy-baseline-trace-025-c",
+          "duration_ms": 85
+        },
+        {
+          "id": "healthy-baseline-027",
+          "timestamp": "2026-09-26T14:04:02.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "healthy-baseline-trace-025",
+          "span_id": "healthy-baseline-trace-025-s",
+          "parent_span_id": "healthy-baseline-trace-025-c",
+          "duration_ms": 81
+        },
+        {
+          "id": "healthy-baseline-028",
+          "timestamp": "2026-09-26T14:04:30.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "inventory",
+            "retry.attempt": 0
+          },
+          "trace_id": "healthy-baseline-trace-027",
+          "span_id": "healthy-baseline-trace-027-c",
+          "duration_ms": 32
+        },
+        {
+          "id": "healthy-baseline-029",
+          "timestamp": "2026-09-26T14:04:30.003Z",
+          "service": "inventory",
+          "kind": "span",
+          "severity": "info",
+          "name": "/inventory",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "healthy-baseline-trace-027",
+          "span_id": "healthy-baseline-trace-027-s",
+          "parent_span_id": "healthy-baseline-trace-027-c",
+          "duration_ms": 28
+        },
+        {
+          "id": "healthy-baseline-030",
+          "timestamp": "2026-09-26T14:04:31.000Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "payments",
+            "retry.attempt": 0
+          },
+          "trace_id": "healthy-baseline-trace-029",
+          "span_id": "healthy-baseline-trace-029-c",
+          "duration_ms": 55
+        },
+        {
+          "id": "healthy-baseline-031",
+          "timestamp": "2026-09-26T14:04:31.003Z",
+          "service": "payments",
+          "kind": "span",
+          "severity": "info",
+          "name": "/payments",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "healthy-baseline-trace-029",
+          "span_id": "healthy-baseline-trace-029-s",
+          "parent_span_id": "healthy-baseline-trace-029-c",
+          "duration_ms": 51
+        },
+        {
+          "id": "healthy-baseline-032",
+          "timestamp": "2026-09-26T14:04:32.000Z",
+          "service": "gateway",
+          "kind": "span",
+          "severity": "info",
+          "name": "GET /checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "client",
+            "peer.service": "checkout",
+            "retry.attempt": 0
+          },
+          "trace_id": "healthy-baseline-trace-031",
+          "span_id": "healthy-baseline-trace-031-c",
+          "duration_ms": 85
+        },
+        {
+          "id": "healthy-baseline-033",
+          "timestamp": "2026-09-26T14:04:32.003Z",
+          "service": "checkout",
+          "kind": "span",
+          "severity": "info",
+          "name": "/checkout",
+          "message": "",
+          "attributes": {
+            "span.kind": "server",
+            "http.response.status_code": 200
+          },
+          "trace_id": "healthy-baseline-trace-031",
+          "span_id": "healthy-baseline-trace-031-s",
+          "parent_span_id": "healthy-baseline-trace-031-c",
+          "duration_ms": 81
+        },
+        {
+          "id": "healthy-baseline-034",
+          "timestamp": "2026-09-26T14:03:40.000Z",
+          "service": "inventory",
+          "kind": "metric",
+          "severity": "info",
+          "name": "db.pool.utilization",
+          "message": "",
+          "attributes": {},
+          "value": 0.35,
+          "unit": "1"
+        },
+        {
+          "id": "healthy-baseline-035",
+          "timestamp": "2026-09-26T14:03:45.000Z",
+          "service": "checkout",
+          "kind": "metric",
+          "severity": "info",
+          "name": "http.client.retry.rate",
+          "message": "",
+          "attributes": {},
+          "value": 0.1,
+          "unit": "attempts/s"
+        },
+        {
+          "id": "healthy-baseline-036",
+          "timestamp": "2026-09-26T14:03:50.000Z",
+          "service": "checkout",
+          "kind": "log",
+          "severity": "info",
+          "name": "application.event",
+          "message": "Health check passed.",
+          "attributes": {}
+        }
+      ]
+    },
+    {
+      "id": "partial-telemetry",
+      "title": "Errors with incomplete telemetry",
+      "description": "Only a few application logs are available. The engine should acknowledge the evidence gap.",
+      "started_at": "2026-09-26T14:00:00.000Z",
+      "ended_at": "2026-09-26T14:08:00.000Z",
+      "events": [
+        {
+          "id": "partial-telemetry-001",
+          "timestamp": "2026-09-26T14:03:30.000Z",
+          "service": "checkout",
+          "kind": "log",
+          "severity": "error",
+          "name": "application.event",
+          "message": "Request failed: operation aborted.",
+          "attributes": {}
+        },
+        {
+          "id": "partial-telemetry-002",
+          "timestamp": "2026-09-26T14:03:34.000Z",
+          "service": "checkout",
+          "kind": "log",
+          "severity": "error",
+          "name": "application.event",
+          "message": "Request failed: operation aborted.",
+          "attributes": {}
+        },
+        {
+          "id": "partial-telemetry-003",
+          "timestamp": "2026-09-26T14:03:40.000Z",
+          "service": "gateway",
+          "kind": "log",
+          "severity": "error",
+          "name": "application.event",
+          "message": "Upstream returned an error.",
+          "attributes": {}
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "incidentatlas"
+version = "0.1.0"
+description = "Evidence-first incident investigation, replay, and evaluation"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+api = ["fastapi==0.141.1", "uvicorn==0.54.0"]
+dev = ["httpx==0.28.1"]
+
+[project.scripts]
+incidentatlas = "incidentatlas.__main__:main"
+
+[tool.setuptools]
+packages = ["incidentatlas"]
+
+[tool.setuptools.data-files]
+"share/incidentatlas/fixtures" = ["fixtures/scenarios.json", "fixtures/labels.json"]

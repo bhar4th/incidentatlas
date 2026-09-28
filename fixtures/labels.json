@@ -1,0 +1,35 @@
+{
+  "warning": "Evaluation labels only. Never supplied to analyze().",
+  "labels": {
+    "pool-pressure": {
+      "cause": "connection_pool_exhaustion",
+      "service": "inventory",
+      "kind": "known_injection"
+    },
+    "downstream-latency": {
+      "cause": "downstream_latency",
+      "service": "fraud",
+      "kind": "known_injection"
+    },
+    "retry-amplification": {
+      "cause": "retry_storm",
+      "service": "checkout",
+      "kind": "known_injection"
+    },
+    "config-regression": {
+      "cause": "configuration_regression",
+      "service": "checkout",
+      "kind": "known_injection"
+    },
+    "healthy-baseline": {
+      "cause": null,
+      "service": null,
+      "kind": "healthy_control"
+    },
+    "partial-telemetry": {
+      "cause": null,
+      "service": null,
+      "kind": "insufficient_evidence"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "events": 10000,
+  "services": 100,
+  "repeats": 10,
+  "matching_events": 34,
+  "index_build_ms": 7.282,
+  "full_scan_median_ms": 0.311203,
+  "indexed_query_median_ms": 0.000892,
+  "results_equal": true,
+  "limitations": [
+    "Synthetic repeated timestamps and evenly assigned services.",
+    "Index build and memory costs are separate from warm query time.",
+    "This benchmark covers lookup only, not total investigation latency."
+  ]
+}

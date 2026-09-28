@@ -1,0 +1,98 @@
+{
+  "strategy": "balanced",
+  "scenarios": [
+    {
+      "scenario_id": "pool-pressure",
+      "expected_cause": "connection_pool_exhaustion",
+      "expected_service": "inventory",
+      "predicted_cause": "connection_pool_exhaustion",
+      "predicted_service": "inventory",
+      "rank": 1,
+      "top1": true,
+      "top3": true,
+      "kind": "known_injection",
+      "unsupported_evidence_count": 0,
+      "latency_ms": 0.853
+    },
+    {
+      "scenario_id": "downstream-latency",
+      "expected_cause": "downstream_latency",
+      "expected_service": "fraud",
+      "predicted_cause": "downstream_latency",
+      "predicted_service": "fraud",
+      "rank": 1,
+      "top1": true,
+      "top3": true,
+      "kind": "known_injection",
+      "unsupported_evidence_count": 0,
+      "latency_ms": 0.667
+    },
+    {
+      "scenario_id": "retry-amplification",
+      "expected_cause": "retry_storm",
+      "expected_service": "checkout",
+      "predicted_cause": "retry_storm",
+      "predicted_service": "checkout",
+      "rank": 1,
+      "top1": true,
+      "top3": true,
+      "kind": "known_injection",
+      "unsupported_evidence_count": 0,
+      "latency_ms": 0.48
+    },
+    {
+      "scenario_id": "config-regression",
+      "expected_cause": "configuration_regression",
+      "expected_service": "checkout",
+      "predicted_cause": "configuration_regression",
+      "predicted_service": "checkout",
+      "rank": 1,
+      "top1": true,
+      "top3": true,
+      "kind": "known_injection",
+      "unsupported_evidence_count": 0,
+      "latency_ms": 0.418
+    },
+    {
+      "scenario_id": "healthy-baseline",
+      "expected_cause": null,
+      "expected_service": null,
+      "predicted_cause": null,
+      "predicted_service": null,
+      "rank": null,
+      "top1": true,
+      "top3": true,
+      "kind": "healthy_control",
+      "unsupported_evidence_count": 0,
+      "latency_ms": 0.48
+    },
+    {
+      "scenario_id": "partial-telemetry",
+      "expected_cause": null,
+      "expected_service": null,
+      "predicted_cause": null,
+      "predicted_service": null,
+      "rank": null,
+      "top1": true,
+      "top3": true,
+      "kind": "insufficient_evidence",
+      "unsupported_evidence_count": 0,
+      "latency_ms": 0.06
+    }
+  ],
+  "metrics": {
+    "injected_scenarios": 4,
+    "control_scenarios": 2,
+    "top1_accuracy": 1.0,
+    "top3_recall": 1.0,
+    "control_abstention_rate": 1.0,
+    "unsupported_evidence_count": 0,
+    "mean_latency_ms": 0.493
+  },
+  "limitations": [
+    "Six small synthetic fixtures; four known injected failures and two controls.",
+    "These cases also guide rule development; this is regression coverage, not held-out accuracy.",
+    "Evidence ID validity does not establish that a hypothesis is causally true.",
+    "Wall-clock latency depends on host hardware and current load."
+  ]
+}
